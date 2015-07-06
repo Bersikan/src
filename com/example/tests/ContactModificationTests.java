@@ -15,6 +15,7 @@ public class ContactModificationTests extends TestBase {
 		contact.birhDay="17";
 		contact.birthMonth="July";
 		contact.birthYear="";
+		contact.groupAssign = null;
 		app.getContactHelper().updateContactForm(contact);
 		app.getContactHelper().submitUpdate();
 		app.getContactHelper().returnToHomePage();

@@ -37,7 +37,7 @@ public class ContactData {
 		this.birhDay = birhDay;
 		this.birthMonth = birthMonth;
 		this.birthYear = birthYear;
-		this.groupAssign = groupAssign;
+		this.groupAssign = null;
 		this.secAddr = secAddr;
 		this.secHomeAddr = secHomeAddr;
 	}
