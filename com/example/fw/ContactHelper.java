@@ -42,7 +42,7 @@ public class ContactHelper extends HelperBase {
 	    type(By.name("phone2"), contact.secHomeAddr);
 	}
 	
-	
+	//asdasd
 
 	public void initContactCreation() {
 		click(By.linkText("add new"));
