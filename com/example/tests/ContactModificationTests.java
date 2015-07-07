@@ -1,24 +1,41 @@
 package com.example.tests;
 
+import static org.testng.Assert.assertEquals;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
 import org.testng.annotations.Test;
 
 public class ContactModificationTests extends TestBase {
 
 
-	@Test
-	public void modifySomeGroup(){
+	@Test(dataProvider ="randomValidContactGenerator")
+	public void modifySomeContact(ContactData contact){
 		app.getNavigationHelper().openMainPage();
-		app.getContactHelper().clickEditButtonByIndex(1);
-		ContactData contact = new ContactData();
-		contact.contactName ="new name"; 
-		contact.contactLastName = "new lastName";
-		contact.birhDay="17";
-		contact.birthMonth="July";
-		contact.birthYear="";		
-		app.getContactHelper().fillContactForm(contact);
-		app.getContactHelper().submitUpdate();
-		app.getContactHelper().returnToHomePage();
 		
+		
+		//save old state
+	    List<ContactData> oldcList = app.getContactHelper().getContacts();
+	    
+	    Random rnd = new Random();
+	    int index = rnd.nextInt(oldcList.size() -1);
+	    
+		//actions
+	    app.getContactHelper().clickEditButtonByIndex(index);
+	    app.getContactHelper().fillContactForm(contact);
+	    app.getContactHelper().submitUpdate();
+	    app.getContactHelper().returnToHomePage();
+		
+		//save new state
+		List<ContactData> newcList = app.getContactHelper().getContacts();
+	    
+	    //compare states	    
+	    oldcList.remove(index);
+	    oldcList.add(contact);
+	    Collections.sort(oldcList);
+	    assertEquals(newcList, oldcList);
 	}
 
 }

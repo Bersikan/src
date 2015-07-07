@@ -1,8 +1,13 @@
 package com.example.fw;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import com.example.tests.ContactData;
+import com.example.tests.GroupData;
 
 public class ContactHelper extends HelperBase {
 
@@ -26,24 +31,8 @@ public class ContactHelper extends HelperBase {
 	    type(By.name("address2"), contact.secAddr);
 	    type(By.name("phone2"), contact.secHomeAddr);
 	}
-	/*public void updateContactForm(ContactData contact) {
-		type(By.name("firstname"), contact.contactName);
-	    type(By.name("lastname"), contact.contactLastName);
-	    type(By.name("address"), contact.address);
-	    type(By.name("home"), contact.homePhone);
-	    type(By.name("mobile"), contact.mobilePhone);
-	    type(By.name("work"), contact.workPhone);
-	    type(By.name("email"), contact.email_1);
-	    type(By.name("email2"), contact.email_2);
-	    selectByText(By.name("bday"), contact.birhDay);
-	    selectByText(By.name("bmonth"), contact.birthMonth);
-	    type(By.name("byear"), contact.birthYear);
-	    type(By.name("address2"), contact.secAddr);
-	    type(By.name("phone2"), contact.secHomeAddr);
-	}*/
 	
 	
-
 	public void initContactCreation() {
 		click(By.linkText("add new"));
 	}
@@ -65,12 +54,24 @@ public class ContactHelper extends HelperBase {
 	}
 
 	public void clickEditButtonByIndex(int index) {
-		click(By.xpath("(//img[@title='Edit'])["+ index +"]"));
+		click(By.xpath("(//img[@title='Edit'])["+ (index+1) +"]"));
 		
 	}
 
 	public void submitUpdate() {
 		click(By.xpath("//input[@value='Update']"));
+	}
+	
+	public List<ContactData> getContacts() {
+		List<ContactData> contacts = new ArrayList<ContactData>();
+		List<WebElement> checkboxes = driver.findElements(By.name("selected[]"));
+		for (WebElement checkbox : checkboxes) {
+			ContactData contact = new ContactData();
+			String title = checkbox.getAttribute("title");
+			contact.contactName = title.substring("select (".length(), title.length() -" )".length());
+			contacts.add(contact);				
+		}
+		return contacts;
 	}
 
 }
