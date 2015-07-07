@@ -14,9 +14,8 @@ public class ContactModificationTests extends TestBase {
 		contact.contactLastName = "new lastName";
 		contact.birhDay="17";
 		contact.birthMonth="July";
-		contact.birthYear="";
-		contact.groupAssign = null;
-		app.getContactHelper().updateContactForm(contact);
+		contact.birthYear="";		
+		app.getContactHelper().fillContactForm(contact);
 		app.getContactHelper().submitUpdate();
 		app.getContactHelper().returnToHomePage();
 		

@@ -62,7 +62,8 @@ public abstract class HelperBase {
 		driver.findElement(locator).click();
 	}
 	protected void selectByText(By locator, String text) {
-		new Select(driver.findElement(locator)).selectByVisibleText(text);
+		if (text != null){
+		 new Select(driver.findElement(locator)).selectByVisibleText(text);}
 
 }
 	}

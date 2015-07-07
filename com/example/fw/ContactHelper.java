@@ -21,12 +21,12 @@ public class ContactHelper extends HelperBase {
 	    type(By.name("email2"), contact.email_2);
 	    selectByText(By.name("bday"), contact.birhDay);
 	    selectByText(By.name("bmonth"), contact.birthMonth);
-	    type(By.name("byear"), contact.birthYear);
+	    type(By.name("byear"), contact.birthYear);	    
 	    selectByText(By.name("new_group"), contact.groupAssign);
 	    type(By.name("address2"), contact.secAddr);
 	    type(By.name("phone2"), contact.secHomeAddr);
 	}
-	public void updateContactForm(ContactData contact) {
+	/*public void updateContactForm(ContactData contact) {
 		type(By.name("firstname"), contact.contactName);
 	    type(By.name("lastname"), contact.contactLastName);
 	    type(By.name("address"), contact.address);
@@ -40,7 +40,7 @@ public class ContactHelper extends HelperBase {
 	    type(By.name("byear"), contact.birthYear);
 	    type(By.name("address2"), contact.secAddr);
 	    type(By.name("phone2"), contact.secHomeAddr);
-	}
+	}*/
 	
 	
 
