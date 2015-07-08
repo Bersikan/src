@@ -43,17 +43,7 @@ public class TestBase {
 		List<Object[]> list = new ArrayList<Object[]>();		
 		for (int i = 0; i<3; i++){
 			ContactData contact = new ContactData();			
-			contact.contactName = generateRandomString();	
-			/*contact.address = generateRandomString();	
-			contact.contactLastName = generateRandomString();	
-			contact.email_1 = generateRandomString();	
-			contact.email_2 = generateRandomString();	
-			contact.homePhone = generateRandomString();	
-			contact.mobilePhone = generateRandomString();	
-			contact.secAddr = generateRandomString();	
-			contact.secHomeAddr = generateRandomString();	
-			contact.workPhone = generateRandomString();*/	
-			
+			contact.contactName = generateRandomString();				
 		list.add( new Object[]{contact});			
 		}
 		return list.iterator();
