@@ -58,13 +58,8 @@ public class GroupHelper extends HelperBase {
 			GroupData group = new GroupData();
 			String title = checkbox.getAttribute("title");
 			group.groupname = title.substring("select (".length(), title.length() -")".length());
-			groups.add(group);	
-			
-		}
-		
-		
+			groups.add(group);				
+		}		
 		return groups;
-		
-
 	}
-	}
+}

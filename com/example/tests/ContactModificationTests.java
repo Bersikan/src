@@ -9,8 +9,6 @@ import java.util.Random;
 import org.testng.annotations.Test;
 
 public class ContactModificationTests extends TestBase {
-
-
 	@Test(dataProvider ="randomValidContactGenerator")
 	public void modifySomeContact(ContactData contact){
 		app.getNavigationHelper().openMainPage();
@@ -34,7 +32,8 @@ public class ContactModificationTests extends TestBase {
 	    //compare states	    
 	    oldcList.remove(index);
 	    oldcList.add(contact);
-	    Collections.sort(oldcList);	    
+	    Collections.sort(oldcList);	  
+	    Collections.sort(newcList);	 
 	    assertEquals(newcList, oldcList);
 	}
 

@@ -70,15 +70,18 @@ public class ContactHelper extends HelperBase {
 		List<WebElement> checkboxes = driver.findElements(By.name("selected[]"));
 		for (WebElement checkbox : checkboxes) {
 			ContactData contact = new ContactData();
-			String title = checkbox.getAttribute("title");			
-			contact.contactName = title.substring("select (".length(), title.length() -" )".length());
+			String accept = checkbox.getAttribute("accept");			
+			contact.contactName = accept.substring(accept.length());
 			contacts.add(contact); 					
 		}
 		return contacts;
 	}
-
-
-	}
+	
+	
+	
+	
+	
+}
 
 
 

@@ -44,7 +44,7 @@ public class TestBase {
 		for (int i = 0; i<3; i++){
 			ContactData contact = new ContactData();			
 			contact.contactName = generateRandomString();	
-			contact.address = generateRandomString();	
+			/*contact.address = generateRandomString();	
 			contact.contactLastName = generateRandomString();	
 			contact.email_1 = generateRandomString();	
 			contact.email_2 = generateRandomString();	
@@ -52,7 +52,8 @@ public class TestBase {
 			contact.mobilePhone = generateRandomString();	
 			contact.secAddr = generateRandomString();	
 			contact.secHomeAddr = generateRandomString();	
-			contact.workPhone = generateRandomString();	
+			contact.workPhone = generateRandomString();*/	
+			
 		list.add( new Object[]{contact});			
 		}
 		return list.iterator();
