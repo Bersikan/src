@@ -62,15 +62,18 @@ public class ContactHelper extends HelperBase {
 		click(By.xpath("//input[@value='Update']"));
 	}
 
+
 	public List<ContactData> getContacts() {
-		List<ContactData> contacts = new ArrayList<ContactData>(); //empty list
-		List<WebElement> contlist = driver.findElements(By.xpath("//td[3]"));
-		for (WebElement cont : contlist) {
+		List<ContactData> contacts = new ArrayList<ContactData>();
+		List<WebElement> contactFields = driver.findElements(By.xpath("//tr[@name='entry']"));
+		for (WebElement contactField : contactFields) {
 			ContactData contact = new ContactData();
-			contact.contactName = cont.getText();
+			contact.contactName = contactField.findElement(By.xpath("./td[3]")).getText();
+			contact.contactLastName = contactField.findElement(By.xpath("./td[2]")).getText();
+			contact.email_1 = contactField.findElement(By.xpath("./td[4]")).getText();
+			contact.homePhone = contactField.findElement(By.xpath("./td[5]")).getText();
 			contacts.add(contact);
-			
-		}
+			}
 		return contacts;
 	}
 	
