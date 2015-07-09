@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.example.tests.ContactData;
+import com.example.tests.GroupData;
 
 public class ContactHelper extends HelperBase {
 
@@ -60,21 +61,23 @@ public class ContactHelper extends HelperBase {
 	public void submitUpdate() {
 		click(By.xpath("//input[@value='Update']"));
 	}
-	
 
-
-
-	
 	public List<ContactData> getContacts() {
-		List<ContactData> contacts = new ArrayList<ContactData>();		
-		List<WebElement> cnames = driver.findElements(By.xpath("//td[2]"));
-		for (WebElement cname : cnames) {
+		List<ContactData> contacts = new ArrayList<ContactData>(); //empty list
+		List<WebElement> contlist = driver.findElements(By.xpath("//td[3]"));
+		for (WebElement cont : contlist) {
 			ContactData contact = new ContactData();
-			contact.contactName =cname.getText();
+			contact.contactName = cont.getText();
 			contacts.add(contact);
+			
 		}
 		return contacts;
 	}
+	
+
+
+
+	
 	
 	
 	

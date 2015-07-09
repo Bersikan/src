@@ -32,7 +32,7 @@ public class ContactModificationTests extends TestBase {
 	    //compare states	    
 	    oldcList.remove(index);
 	    oldcList.add(contact);
-	    Collections.sort(oldcList);	   
+	    Collections.sort(oldcList);	 Collections.sort(newcList);	    
 	    assertEquals(oldcList, newcList);
 	}
 
