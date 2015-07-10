@@ -51,10 +51,10 @@ public abstract class HelperBase {
 	    }
 	  }
 
-	protected void type(By locator, String text) {
-		if (text!=null){
+	protected void type(By locator, String birthYear) {
+		if (birthYear!=null){
 		driver.findElement(locator).clear();
-		driver.findElement(locator).sendKeys(text);
+		driver.findElement(locator).sendKeys(birthYear);
 		}
 	}
 

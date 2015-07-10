@@ -35,6 +35,7 @@ public class ContactCreationTests extends TestBase {
     //compare states   
     oldcList.add(contact);
     Collections.sort(oldcList);
+    //Collections.sort(newcList);
     assertEquals(newcList, oldcList);
   
   }

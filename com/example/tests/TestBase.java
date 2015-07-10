@@ -47,12 +47,13 @@ public class TestBase {
 			contact.contactLastName = generateRandomString();
 			contact.address = generateRandomString();
 			contact.email_1 = generateRandomString();
-			contact.email_2 = generateRandomString();
+			//contact.email_2 = generateRandomString();
 			contact.homePhone = generateRandomString();
 			contact.secAddr = generateRandomString();
 			contact.secHomeAddr = generateRandomString();
-			contact.mobilePhone = generateRandomString();
-			contact.workPhone = generateRandomString();
+			//contact.mobilePhone = generateRandomString();
+			//contact.workPhone = generateRandomString();
+			contact.birthYear = generateRandomYear();
 		list.add( new Object[]{contact});			
 		}
 		return list.iterator();
@@ -65,6 +66,11 @@ public class TestBase {
 			} else {
 				return "test" + rnd.nextInt();
 			}
+	}
+	public String generateRandomYear(){					
+		int t =((int) (Math.random()*9999+1));
+		String a = Integer.toString(t);		
+		return a;
 	}
 
 }
