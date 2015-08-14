@@ -2,20 +2,20 @@ package com.example.tests;
 
 
 public class ContactData implements Comparable<ContactData> {
-	public String contactName;
-	public String contactLastName;
-	public String address;
-	public String homePhone;
-	public String mobilePhone;
-	public String workPhone;
-	public String email_1;
-	public String email_2;
-	public String birhDay;
-	public String birthMonth;
-	public String birthYear;
-	public String groupAssign;
-	public String secAddr;
-	public String secHomeAddr;
+	private String contactName;
+	private String contactLastName;
+	private String address;
+	private String homePhone;
+	private String mobilePhone;
+	private String workPhone;
+	private String email_1;
+	private String email_2;
+	private String birhDay;
+	private String birthMonth;
+	private String birthYear;
+	private String groupAssign;
+	private String secAddr;
+	private String secHomeAddr;
 	
 	public ContactData(){
 		
@@ -116,6 +116,96 @@ public class ContactData implements Comparable<ContactData> {
 		return true;
 	}
 	
+	public ContactData withContactName(String contactName) {		
+		this.contactName = contactName;
+		return this;
+	}
+
+	public ContactData withContactLastName(String contactLastName) {
+		this.contactLastName = contactLastName;
+		return this;
+	}
+
+	public ContactData withAddress(String address) {
+		this.address = address;
+		return this;
+	}
+	public ContactData withEmail_1(String email_1) {
+		this.email_1 = email_1;
+		return this;
+	}
+	public ContactData withHomePhone(String HomePhone) {		
+		homePhone = HomePhone;
+		return this;
+	}
+	public ContactData withSecAddr(String secAddr) {
+		this.secAddr = secAddr;
+		return this;
+	}
+	public ContactData withSecHomeAddr(String homeAddr) {	
+		address = homeAddr;
+		return this;
+	}
+	public ContactData withBirthYear(String birthYear) {
+		this.birthYear = birthYear;
+		return this;
+	}
+
+	public String getContactName() {
+		return contactName;
+	}
+
+	public String getContactLastName() {
+		return contactLastName;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public String getHomePhone() {
+		return homePhone;
+	}
+
+	public String getMobilePhone() {
+		return mobilePhone;
+	}
+
+	public String getWorkPhone() {
+		return workPhone;
+	}
+
+	public String getEmail_1() {
+		return email_1;
+	}
+
+	public String getEmail_2() {
+		return email_2;
+	}
+
+	public String getBirhDay() {
+		return birhDay;
+	}
+
+	public String getBirthMonth() {
+		return birthMonth;
+	}
+
+	public String getBirthYear() {
+		return birthYear;
+	}
+
+	public String getGroupAssign() {
+		return groupAssign;
+	}
+
+	public String getSecAddr() {
+		return secAddr;
+	}
+
+	public String getSecHomeAddr() {
+		return secHomeAddr;
+	}
 
 	
 }

@@ -13,6 +13,8 @@ import com.example.fw.ApplicationManager;
 
 public class TestBase {
 	protected static ApplicationManager app;
+	private String groupname;
+	private String name;
 	
 
 
@@ -29,35 +31,39 @@ public class TestBase {
 	@DataProvider
 	public Iterator<Object[]> randomValidGroupGenerator() {
 		List<Object[]> list = new ArrayList<Object[]>();		
-		for (int i = 0; i<5; i++){
-			GroupData group = new GroupData();			
-			group.groupname = generateRandomString();
-			group.header = generateRandomString();
-			group.footer = generateRandomString();
+		for (int i = 0; i<5; i++){		
+			GroupData group = new GroupData()
+			.withGroupName(generateRandomString())
+			.withHeader(generateRandomString())
+			.withFooter(generateRandomString()); 		
 		list.add( new Object[]{group});			
 		}
 		return list.iterator();
 	}
+
+
 	@DataProvider
 	public Iterator<Object[]> randomValidContactGenerator() {
 		List<Object[]> list = new ArrayList<Object[]>();		
 		for (int i = 0; i<3; i++){
-			ContactData contact = new ContactData();			
-			contact.contactName = generateRandomString();
-			contact.contactLastName = generateRandomString();
-			contact.address = generateRandomString();
-			contact.email_1 = generateRandomString();
+			ContactData contact = new ContactData()			
+			.withContactName(generateRandomString())
+			.withContactLastName(generateRandomString())
+			.withAddress(generateRandomString())
+			.withEmail_1(generateRandomString())
 			//contact.email_2 = generateRandomString();
-			contact.homePhone = generateRandomString();
-			contact.secAddr = generateRandomString();
-			contact.secHomeAddr = generateRandomString();
+			.withHomePhone(generateRandomString())
+			.withSecAddr(generateRandomString())
+			.withSecHomeAddr(generateRandomString())
 			//contact.mobilePhone = generateRandomString();
 			//contact.workPhone = generateRandomString();
-			contact.birthYear = generateRandomYear();
+			.withBirthYear(generateRandomString());
 		list.add( new Object[]{contact});			
 		}
 		return list.iterator();
 	}
+	
+
 	
 	public String generateRandomString(){
 		Random rnd = new Random();			
