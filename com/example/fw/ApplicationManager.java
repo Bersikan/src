@@ -6,36 +6,41 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ApplicationManager {
-	public  WebDriver driver;
-	public  String baseUrl;		
-	private NavigationHelper navigationhelper;
-	private GroupHelper grouphelper;
-	private ContactHelper contacthelper ;
-	public ApplicationManager(){
-		 driver = new FirefoxDriver();
-		 baseUrl = "http://localhost/";
-		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 driver.get(baseUrl + "/addressbookv4.1.4/");
+	public WebDriver			driver;
+	public String				baseUrl;
+	private NavigationHelper	navigationhelper;
+	private GroupHelper			grouphelper;
+	private ContactHelper		contacthelper;
+
+	public ApplicationManager() {
+		driver = new FirefoxDriver();
+		baseUrl = "http://localhost/";
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.get(baseUrl + "/addressbookv4.1.4/");
 	}
+
 	public void stop() {
-		 driver.quit();
+		driver.quit();
 	}
-public NavigationHelper navigateTo(){
-	if (navigationhelper == null) {
-		navigationhelper = new NavigationHelper(this);		
+
+	public NavigationHelper navigateTo() {
+		if (navigationhelper == null) {
+			navigationhelper = new NavigationHelper(this);
+		}
+		return navigationhelper;
 	}
-	return navigationhelper;
-}
-public GroupHelper getGroupHelper(){
-	if (grouphelper == null) {
-		grouphelper = new GroupHelper(this);		
+
+	public GroupHelper getGroupHelper() {
+		if (grouphelper == null) {
+			grouphelper = new GroupHelper(this);
+		}
+		return grouphelper;
 	}
-	return grouphelper;
-}
-public ContactHelper getContactHelper(){
-	if (contacthelper == null) {
-		contacthelper = new ContactHelper(this);		
+
+	public ContactHelper getContactHelper() {
+		if (contacthelper == null) {
+			contacthelper = new ContactHelper(this);
+		}
+		return contacthelper;
 	}
-	return contacthelper;
- }
 }

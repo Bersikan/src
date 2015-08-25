@@ -1,31 +1,28 @@
 package com.example.tests;
 
-
 public class ContactData implements Comparable<ContactData> {
-	private String contactName;
-	private String contactLastName;
-	private String address;
-	private String homePhone;
-	private String mobilePhone;
-	private String workPhone;
-	private String email_1;
-	private String email_2;
-	private String birhDay;
-	private String birthMonth;
-	private String birthYear;
-	private String groupAssign;
-	private String secAddr;
-	private String secHomeAddr;
-	
-	public ContactData(){
-		
+	private String	contactName;
+	private String	contactLastName;
+	private String	address;
+	private String	homePhone;
+	private String	mobilePhone;
+	private String	workPhone;
+	private String	email_1;
+	private String	email_2;
+	private String	birhDay;
+	private String	birthMonth;
+	private String	birthYear;
+	private String	groupAssign;
+	private String	secAddr;
+	private String	secHomeAddr;
+
+	public ContactData() {
+
 	}
 
-	public ContactData(String contactName, String contactLastName,
-			String address, String homePhone, String mobilePhone,
-			String workPhone, String email_1, String email_2, String birhDay,
-			String birthMonth, String birthYear, String groupAssign,
-			String secAddr, String secHomeAddr) {
+	public ContactData(String contactName, String contactLastName, String address, String homePhone, String mobilePhone,
+			String workPhone, String email_1, String email_2, String birhDay, String birthMonth, String birthYear,
+			String groupAssign, String secAddr, String secHomeAddr) {
 		this.contactName = contactName;
 		this.contactLastName = contactLastName;
 		this.address = address;
@@ -41,46 +38,42 @@ public class ContactData implements Comparable<ContactData> {
 		this.secAddr = secAddr;
 		this.secHomeAddr = secHomeAddr;
 	}
-	
-
-
-	
 
 	@Override
 	public String toString() {
-		return "ContactData [contactName=" + contactName + ", contactLastName="
-				+ contactLastName + ", homePhone=" + homePhone + ", email="
-				+ email_1 + "]";
-	}	
+		return "ContactData [contactName=" + contactName + ", contactLastName=" + contactLastName + ", homePhone=" + homePhone + ", email=" + email_1 + "]";
+	}
+
 	@Override
-	 public int compareTo(ContactData other) {
-	  if (this.contactLastName.toLowerCase().equals(other.contactLastName.toLowerCase())) {
-	   if (this.contactName.toLowerCase().equals(other.contactName.toLowerCase())) {
-	    if (this.email_1.toLowerCase().equals(other.email_1.toLowerCase())) {	      
-	      return this.homePhone.toLowerCase().compareTo(other.homePhone.toLowerCase());	    	     
-	    } else {
-	     return this.email_1.toLowerCase().compareTo(other.email_1.toLowerCase());
-	    }
-	    
-	   } else {
-	    return this.contactName.toLowerCase().compareTo(other.contactName.toLowerCase());
-	   }
-	  } else {
-	   return this.contactLastName.toLowerCase().compareTo(other.contactLastName.toLowerCase());
-	  }
-	 }
+	public int compareTo(ContactData other) {
+		if (this.contactLastName.toLowerCase().equals(other.contactLastName.toLowerCase())) {
+			if (this.contactName.toLowerCase().equals(other.contactName.toLowerCase())) {
+				if (this.email_1.toLowerCase().equals(other.email_1.toLowerCase())) {
+					return this.homePhone.toLowerCase().compareTo(other.homePhone.toLowerCase());
+				} else {
+					return this.email_1.toLowerCase().compareTo(other.email_1.toLowerCase());
+				}
+
+			} else {
+				return this.contactName.toLowerCase().compareTo(other.contactName.toLowerCase());
+			}
+		} else {
+			return this.contactLastName.toLowerCase().compareTo(other.contactLastName.toLowerCase());
+		}
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-//		result = prime * result
-//				+ ((contactLastName == null) ? 0 : contactLastName.hashCode());
-//		result = prime * result
-//				+ ((contactName == null) ? 0 : contactName.hashCode());
-//		result = prime * result + ((email_2 == null) ? 0 : email_2.hashCode());
-//		result = prime * result
-//				+ ((mobilePhone == null) ? 0 : mobilePhone.hashCode());
+		// result = prime * result
+		// + ((contactLastName == null) ? 0 : contactLastName.hashCode());
+		// result = prime * result
+		// + ((contactName == null) ? 0 : contactName.hashCode());
+		// result = prime * result + ((email_2 == null) ? 0 :
+		// email_2.hashCode());
+		// result = prime * result
+		// + ((mobilePhone == null) ? 0 : mobilePhone.hashCode());
 		return result;
 	}
 
@@ -109,14 +102,14 @@ public class ContactData implements Comparable<ContactData> {
 		} else if (!email_1.equals(other.email_1))
 			return false;
 		if (homePhone == null) {
-			if (other.homePhone!= null)
+			if (other.homePhone != null)
 				return false;
 		} else if (!homePhone.equals(other.homePhone))
 			return false;
 		return true;
 	}
-	
-	public ContactData withContactName(String contactName) {		
+
+	public ContactData withContactName(String contactName) {
 		this.contactName = contactName;
 		return this;
 	}
@@ -130,22 +123,27 @@ public class ContactData implements Comparable<ContactData> {
 		this.address = address;
 		return this;
 	}
+
 	public ContactData withEmail_1(String email_1) {
 		this.email_1 = email_1;
 		return this;
 	}
-	public ContactData withHomePhone(String HomePhone) {		
+
+	public ContactData withHomePhone(String HomePhone) {
 		homePhone = HomePhone;
 		return this;
 	}
+
 	public ContactData withSecAddr(String secAddr) {
 		this.secAddr = secAddr;
 		return this;
 	}
-	public ContactData withSecHomeAddr(String homeAddr) {	
+
+	public ContactData withSecHomeAddr(String homeAddr) {
 		address = homeAddr;
 		return this;
 	}
+
 	public ContactData withBirthYear(String birthYear) {
 		this.birthYear = birthYear;
 		return this;
@@ -207,5 +205,4 @@ public class ContactData implements Comparable<ContactData> {
 		return secHomeAddr;
 	}
 
-	
 }
